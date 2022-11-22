@@ -1,3 +1,5 @@
 /bronte
 /checkpoints
 /logs
+/__pycache__
+/textloader
