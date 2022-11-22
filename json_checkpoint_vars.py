@@ -36,7 +36,7 @@ def _var_name_to_filename(var_name):
 def dump_checkpoints(checkpoint_path, model_path ,vocab, model_name, final_model):
   print('Converting model to ml5js:', model_name, final_model)
   chk_fpath = os.path.expanduser('./{}/{}/{}'.format(checkpoint_path, model_name, final_model))
-  reader = tf.train.NewCheckpointReader(chk_fpath)
+  reader = tf.compat.v1.train.NewCheckpointReader(chk_fpath)
   var_to_shape_map = reader.get_variable_to_shape_map()
   output_dir = os.path.expanduser(OPTIONS["output_dir"])
   output_dir = './{}/{}'.format(model_path, model_name)

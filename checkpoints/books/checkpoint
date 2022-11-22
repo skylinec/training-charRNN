@@ -1,2 +1,6 @@
-model_checkpoint_path: "books-0"
-all_model_checkpoint_paths: "books-0"
+model_checkpoint_path: "books-10000"
+all_model_checkpoint_paths: "books-6000"
+all_model_checkpoint_paths: "books-7000"
+all_model_checkpoint_paths: "books-8000"
+all_model_checkpoint_paths: "books-9000"
+all_model_checkpoint_paths: "books-10000"

@@ -30,6 +30,10 @@ tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
 
 tf.compat.v1.disable_v2_behavior()
 
+# tf.config.run_functions_eagerly(True)
+
+tf.compat.v1.disable_eager_execution()
+
 
 def main():
     parser = argparse.ArgumentParser(
