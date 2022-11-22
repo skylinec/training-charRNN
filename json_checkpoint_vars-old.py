@@ -40,7 +40,7 @@ def dump_checkpoints(checkpoint_path, model_path ,vocab, model_name, final_model
   var_to_shape_map = reader.get_variable_to_shape_map()
   output_dir = os.path.expanduser(OPTIONS["output_dir"])
   output_dir = './{}/{}'.format(model_path, model_name)
-  tf.io.gfile.makedirs(output_dir)
+  tf.gfile.MakeDirs(output_dir)
   manifest = {}
   remove_vars_compiled_re = re.compile(OPTIONS["remove_variables_regex"])
 
