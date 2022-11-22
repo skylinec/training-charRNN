@@ -26,7 +26,9 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 
 # hide logs
-tf.logging.set_verbosity(tf.logging.ERROR)
+tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
+
+tf.compat.v1.disable_v2_behavior()
 
 
 def main():
@@ -134,20 +136,20 @@ def train(args):
 
     model = Model(args)
 
-    with tf.Session() as sess:
+    with tf.compat.v1.Session() as sess:
         # instrument for tensorboard
-        summaries = tf.summary.merge_all()
-        writer = tf.summary.FileWriter(
+        summaries = tf.compat.v1.summary.merge_all()
+        writer = tf.compat.v1.summary.FileWriter(
             os.path.join(args.log_dir, time.strftime("%Y-%m-%d-%H-%M-%S")))
         writer.add_graph(sess.graph)
 
-        sess.run(tf.global_variables_initializer())
-        saver = tf.train.Saver(tf.global_variables())
+        sess.run(tf.compat.v1.global_variables_initializer())
+        saver = tf.compat.v1.train.Saver(tf.compat.v1.global_variables())
         # restore model
         if args.init_from is not None:
             saver.restore(sess, ckpt.model_checkpoint_path)
         for e in range(args.num_epochs):
-            sess.run(tf.assign(model.lr, args.learning_rate *
+            sess.run(tf.compat.v1.assign(model.lr, args.learning_rate *
                                (args.decay_rate ** e)))
             data_loader.reset_batch_pointer()
             state = sess.run(model.initial_state)

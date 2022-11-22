@@ -1,0 +1,2 @@
+model_checkpoint_path: "books-0"
+all_model_checkpoint_paths: "books-0"

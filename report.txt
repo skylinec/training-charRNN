@@ -1,0 +1,56 @@
+TensorFlow 2.0 Upgrade Script
+-----------------------------
+Converted 1 files
+Detected 5 issues that require attention
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+File: model-old.py
+--------------------------------------------------------------------------------
+model-old.py:43:24: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+model-old.py:45:24: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+model-old.py:47:20: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+model-old.py:48:17: WARNING: tf.nn.embedding_lookup requires manual check. `partition_strategy` has been removed from tf.nn.embedding_lookup.  The 'div' strategy will be used by default.
+model-old.py:60:19: WARNING: tf.nn.embedding_lookup requires manual check. `partition_strategy` has been removed from tf.nn.embedding_lookup.  The 'div' strategy will be used by default.
+================================================================================
+Detailed log follows:
+
+================================================================================
+--------------------------------------------------------------------------------
+Processing file 'model-old.py'
+ outputting to 'model.py'
+--------------------------------------------------------------------------------
+
+36:26: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+38:23: INFO: Renamed 'tf.placeholder' to 'tf.compat.v1.placeholder'
+42:13: INFO: Renamed 'tf.variable_scope' to 'tf.compat.v1.variable_scope'
+43:24: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+43:24: INFO: Renamed 'tf.get_variable' to 'tf.compat.v1.get_variable'
+45:24: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+45:24: INFO: Renamed 'tf.get_variable' to 'tf.compat.v1.get_variable'
+47:20: WARNING: tf.get_variable requires manual check. tf.get_variable returns ResourceVariables by default in 2.0, which have well-defined semantics and are stricter about shapes. You can disable this behavior by passing use_resource=False, or by calling tf.compat.v1.disable_resource_variables().
+47:20: INFO: Renamed 'tf.get_variable' to 'tf.compat.v1.get_variable'
+48:17: INFO: Added keywords to args of function 'tf.nn.embedding_lookup'
+48:17: WARNING: tf.nn.embedding_lookup requires manual check. `partition_strategy` has been removed from tf.nn.embedding_lookup.  The 'div' strategy will be used by default.
+52:21: INFO: Changing keep_prob arg of tf.nn.dropout to rate, and recomputing value.
+
+59:43: INFO: Added keywords to args of function 'tf.argmax'
+60:19: INFO: Added keywords to args of function 'tf.nn.embedding_lookup'
+60:19: WARNING: tf.nn.embedding_lookup requires manual check. `partition_strategy` has been removed from tf.nn.embedding_lookup.  The 'div' strategy will be used by default.
+72:13: INFO: `name` passed to `name_scope`. Because you may be re-entering an existing scope, it is not safe to convert automatically,  the v2 name_scope does not support re-entering scopes by name.
+
+72:13: INFO: Renamed 'tf.name_scope' to 'tf.compat.v1.name_scope'
+73:24: INFO: Added keywords to args of function 'tf.reduce_sum'
+76:16: INFO: Renamed 'tf.trainable_variables' to 'tf.compat.v1.trainable_variables'
+77:42: INFO: Added keywords to args of function 'tf.gradients'
+79:13: INFO: `name` passed to `name_scope`. Because you may be re-entering an existing scope, it is not safe to convert automatically,  the v2 name_scope does not support re-entering scopes by name.
+
+79:13: INFO: Renamed 'tf.name_scope' to 'tf.compat.v1.name_scope'
+80:24: INFO: Renamed 'tf.train.AdamOptimizer' to 'tf.compat.v1.train.AdamOptimizer'
+84:8: INFO: tf.summary.histogram requires manual check. The TF 1.x summary API cannot be automatically migrated to TF 2.0, so symbols have been converted to tf.compat.v1.summary.* and must be migrated manually. Typical usage will only require changes to the summary writing logic, not to individual calls like scalar(). For examples of the new summary API, see the Effective TF 2.0 migration document or check the TF 2.0 TensorBoard tutorials.
+84:8: INFO: Renamed 'tf.summary.histogram' to 'tf.compat.v1.summary.histogram'
+85:8: INFO: tf.summary.histogram requires manual check. The TF 1.x summary API cannot be automatically migrated to TF 2.0, so symbols have been converted to tf.compat.v1.summary.* and must be migrated manually. Typical usage will only require changes to the summary writing logic, not to individual calls like scalar(). For examples of the new summary API, see the Effective TF 2.0 migration document or check the TF 2.0 TensorBoard tutorials.
+85:8: INFO: Renamed 'tf.summary.histogram' to 'tf.compat.v1.summary.histogram'
+86:8: INFO: tf.summary.scalar requires manual check. The TF 1.x summary API cannot be automatically migrated to TF 2.0, so symbols have been converted to tf.compat.v1.summary.* and must be migrated manually. Typical usage will only require changes to the summary writing logic, not to individual calls like scalar(). For examples of the new summary API, see the Effective TF 2.0 migration document or check the TF 2.0 TensorBoard tutorials.
+86:8: INFO: Renamed 'tf.summary.scalar' to 'tf.compat.v1.summary.scalar'
+--------------------------------------------------------------------------------
+
